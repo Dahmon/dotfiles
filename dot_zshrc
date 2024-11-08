@@ -47,8 +47,8 @@ unsetopt HIST_VERIFY
 # alias ea-login="op run --env-file=$HOME/.config/op/azure-env -- ea-aws-azure-login --no-prompt"
 
 # Shine AWS Login
-export AWS_PROFILE=shine
-alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
+#export AWS_PROFILE=shine
+#alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
 
 # --- Oh My ZSH ---
 
@@ -81,7 +81,23 @@ zstyle ':omz:update' mode auto
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git zsh-nvm zsh-syntax-highlighting)
+plugin_repos=(
+	zsh-users/zsh-syntax-highlighting
+	lukechilds/zsh-nvm
+)
+ZSH_CUSTOM_PLUGINS="$HOME/.oh-my-zsh/custom/plugins"
+for repo in $plugin_repos; do
+	if [[ ! -d $ZSH_CUSTOM_PLUGINS/${repo:t} ]]; then
+		git clone --depth 1 https://github.com/${repo} $ZSH_CUSTOM_PLUGINS/${repo:t}
+	fi
+done
+
+# zsh-syntax-highlighting must be last
+plugins+=(
+	git
+	zsh-nvm
+	zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 if command -v fzf &> /dev/null
@@ -93,3 +109,5 @@ fi
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

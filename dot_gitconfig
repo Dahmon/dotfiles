@@ -4,7 +4,7 @@
   editor = vim
 [user]
   name = Dahmon Bicheno
-  email = dahmon.bicheno@gmail.com
+  email = dahmon.bicheno@servictoria.com.au
 [pull]
   rebase = true
   autostash = true
