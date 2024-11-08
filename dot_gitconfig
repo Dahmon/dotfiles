@@ -1,0 +1,58 @@
+[init]
+  defaultBranch = main
+[core]
+  editor = vim
+[user]
+  name = Dahmon Bicheno
+  email = dahmon.bicheno@gmail.com
+[pull]
+  rebase = true
+  autostash = true
+[rebase]
+  autostash = true
+[merge]
+  autostash = true
+[alias]
+  # Commit
+  c = commit
+  cm = commit -m
+  ca = commit --amend
+  cnv = commit --no-verify
+  canv = commit --amend --no-verify
+  cmnv = commit --no-verify -m
+  # Push/Pull/Fetch
+  ps = push
+  psu = push -u origin HEAD
+  psf = push --force-with-lease
+  pl = pull
+  plr = pull --rebase
+  plm = pull --merge
+  fa = fetch --all
+  fo = "!git fetch origin $1:$1" 
+  # Checkout
+  co = checkout
+  cob = checkout -b
+  # Rebase
+  rb = rebase
+  rbi = rebase --interactive
+  rbc = rebase --continue
+  rba = rebase --abort
+  # Cherry Pick
+  cp = cherry-pick
+  cpe = cherry-pick --edit
+  cpa = cherry-pick --abort
+  cpc = cherry-pick --continue
+  cps = cherry-pick --skip
+  # Stash
+  st = stash
+  stu = stash -u
+  stm = stash save
+  stum = stash save -u
+  stl = stash list
+  sta = "! stash=${1:-0}; git stash apply stash@{$stash}; --"
+  stp = "! stash=${1:-0}; git stash pop stash@{$stash}; --"
+  # Status
+  sts = status -sb --find-renames
+  # Thanks Branko for this log format!
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+  lga = lg --all

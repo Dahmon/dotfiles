@@ -1,0 +1,95 @@
+# --- ME ---
+
+# History - https://registerspill.thorstenball.com/p/which-command-did-you-run-1731-days
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+# Immediately append to history file:
+setopt INC_APPEND_HISTORY
+
+# Record timestamp in history:
+setopt EXTENDED_HISTORY
+
+# Expire duplicate entries first when trimming history:
+setopt HIST_EXPIRE_DUPS_FIRST
+
+# Dont record an entry that was just recorded again:
+setopt HIST_IGNORE_DUPS
+
+# Delete old recorded entry if new entry is a duplicate:
+setopt HIST_IGNORE_ALL_DUPS
+
+# Do not display a line previously found:
+setopt HIST_FIND_NO_DUPS
+
+# Dont record an entry starting with a space:
+setopt HIST_IGNORE_SPACE
+
+# Dont write duplicate entries in the history file:
+setopt HIST_SAVE_NO_DUPS
+
+# Share history between all sessions:
+setopt SHARE_HISTORY
+
+# Execute commands using history (e.g.: using !$) immediatel:
+unsetopt HIST_VERIFY
+
+
+# EA
+# export MORRIS_USERNAME="digital-iq"
+# export MORRIS_SOURCE_DIR="/Users/dahmonbicheno/Documents/Workspace/EA/ea-sonatype-reporting"
+
+# if [ -e "/Users/dahmonbicheno/.morris_aliases" ]; then
+#     source /Users/dahmonbicheno/.morris_aliases
+# fi
+
+# alias ea-login="op run --env-file=$HOME/.config/op/azure-env -- ea-aws-azure-login --no-prompt"
+
+# Shine AWS Login
+export AWS_PROFILE=shine
+alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
+
+# --- Oh My ZSH ---
+
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# update automatically without asking
+zstyle ':omz:update' mode auto
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+plugins=(git zsh-nvm zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
+if command -v fzf &> /dev/null
+then
+  source <(fzf --zsh)
+else
+  echo "fzf not installed"
+fi
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform
