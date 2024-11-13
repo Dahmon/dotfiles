@@ -34,10 +34,10 @@ inoremap <C-h>   <Left>
 inoremap <C-l>   <Right>
 inoremap <C-k>   <Up>
 inoremap <C-j>   <Down>
-inoremap <Left>  <Nop>
-inoremap <Right> <Nop>
-inoremap <Up>    <Nop>
-inoremap <Down>  <Nop>
+" inoremap <Left>  <Nop>
+" inoremap <Right> <Nop>
+" inoremap <Up>    <Nop>
+" inoremap <Down>  <Nop>
 
 " Always show the tabline at the top of the page, even when there is only
 " one tab.
