@@ -1,5 +1,10 @@
 # --- ME ---
 
+# Fix path on SERV WSL
+PATH="/mnt/c/Users/DahmonBicheno/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
+PATH="$PATH:/snap/bin"
+PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+
 # History - https://registerspill.thorstenball.com/p/which-command-did-you-run-1731-days
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
