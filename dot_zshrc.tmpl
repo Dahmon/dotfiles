@@ -1,9 +1,17 @@
 # --- ME ---
-
+{{ if eq .machine "SERV WSL" }}
 # Fix path on SERV WSL
 PATH="/mnt/c/Users/DahmonBicheno/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
 PATH="$PATH:/snap/bin"
 PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+{{ end }}
+
+{{ if eq .machine "Shine" }}
+# Shine AWS Login
+export AWS_PROFILE=shine
+alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
+{{ end }}
 
 # History - https://registerspill.thorstenball.com/p/which-command-did-you-run-1731-days
 HISTFILE=~/.zsh_history
@@ -39,21 +47,6 @@ setopt SHARE_HISTORY
 
 # Execute commands using history (e.g.: using !$) immediatel:
 unsetopt HIST_VERIFY
-
-
-# EA
-# export MORRIS_USERNAME="digital-iq"
-# export MORRIS_SOURCE_DIR="/Users/dahmonbicheno/Documents/Workspace/EA/ea-sonatype-reporting"
-
-# if [ -e "/Users/dahmonbicheno/.morris_aliases" ]; then
-#     source /Users/dahmonbicheno/.morris_aliases
-# fi
-
-# alias ea-login="op run --env-file=$HOME/.config/op/azure-env -- ea-aws-azure-login --no-prompt"
-
-# Shine AWS Login
-#export AWS_PROFILE=shine
-#alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
 
 # --- Oh My ZSH ---
 
@@ -115,4 +108,3 @@ fi
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

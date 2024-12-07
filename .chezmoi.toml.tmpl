@@ -1,0 +1,9 @@
+{{- $machines := list "Personal" "Shine" "SERV WSL" -}}
+{{- $machine := promptChoiceOnce . "machine" "What machine are you on" $machines -}}
+{{- $email := promptStringOnce . "email" "Email Address" -}}
+
+[edit]
+	command = "vim"
+[data]
+	email = {{ $email | quote }}
+	machine = {{ $machine | quote }}
