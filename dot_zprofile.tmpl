@@ -1,12 +1,12 @@
-{{ if eq .chezmoi.os "darwin" }}
-{{ if eq .chezmoi.arch "arm64" }}
+{{ if eq .chezmoi.os "darwin" -}}
+{{ if eq .chezmoi.arch "arm64" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
-{{ end }}
-{{ end }}
+{{ end -}}
+{{ end -}}
 
-{{ if eq .machine "Shine" }}
+{{ if eq .machine "Shine" -}}
 # Setting PATH for Python 3.10
 # The original version is saved in .zprofile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:${PATH}"
 export PATH
-{{ end }}
+{{ end -}}
