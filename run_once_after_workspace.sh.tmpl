@@ -1,0 +1,35 @@
+#!/bin/bash
+
+mkdir -p ~/workspace
+
+{{ range .packages.core.casks -}}
+brew install --cask {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.core.brews -}}
+brew install {{ . | quote }}
+{{ end -}}
+
+{{ if eq .machine "Personal" -}}
+{{ range .packages.home.casks -}}
+brew install --cask {{ . | quote -}}
+{{ end -}}
+
+{{ range .packages.home.brews -}}
+brew install {{ . | quote }}
+{{ end }}
+
+{{ else -}}
+
+{{ range .packages.work.casks -}}
+brew install --cask {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.work.brews -}}
+brew install {{ . | quote }}
+{{ end -}}
+{{ end -}}
+
+# install nvm/other curl install script
+# zsh + omz
+

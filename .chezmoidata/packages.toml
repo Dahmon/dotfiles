@@ -1,0 +1,24 @@
+[packages.core]
+# nvm! Not via brew, install sh file
+casks = ["1password-cli", "wezterm"]
+brews = [
+	"jq",
+	"yq",
+	"fzf",
+	"terraform",
+	"vim",
+]
+
+[packages.home]
+casks = []
+brews = []
+
+[packages.work]
+casks = []
+brews = [
+	"docker",
+	"docker-completion",
+	"colima",
+	"saml2aws",
+	"iamlive",
+]
