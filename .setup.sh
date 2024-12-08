@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -ex
+
 if ! command -v brew &>/dev/null; then
 	echo 'brew is not installed. Installing.'
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
