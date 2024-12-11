@@ -72,6 +72,8 @@ let g:ale_linters = {
 Plug 'dense-analysis/ale'
 
 " Deoplete Config
+" TODO: Install python3-pynvim via apt-get or brew - macos doesn't have
+" apt-get
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'

@@ -2,31 +2,41 @@
 
 mkdir -p ~/workspace
 
-{{ range .packages.core.casks -}}
-brew install --cask {{ . | quote }}
-{{ end -}}
-
+# Brew
+# Core Brews
 {{ range .packages.core.brews -}}
 brew install {{ . | quote }}
 {{ end -}}
 
 {{ if eq .machine "Personal" -}}
-{{ range .packages.home.casks -}}
-brew install --cask {{ . | quote -}}
-{{ end -}}
-
+# Personal Brews
 {{ range .packages.home.brews -}}
 brew install {{ . | quote }}
 {{ end }}
-
 {{ else -}}
+# Work Brews
+{{ range .packages.work.brews -}}
+brew install {{ . | quote }}
+{{ end -}}
+{{ end -}}
 
-{{ range .packages.work.casks -}}
+# MacOS Casks
+{{ if eq .chezmoi.os "darwin" -}}
+# Core Casks
+{{ range .packages.core.casks -}}
 brew install --cask {{ . | quote }}
 {{ end -}}
 
-{{ range .packages.work.brews -}}
-brew install {{ . | quote }}
+{{ if eq .machine "Personal" -}}
+# Personal Casks
+{{ range .packages.home.casks -}}
+brew install --cask {{ . | quote -}}
+{{ end -}}
+{{ else -}}
+# Work Casks
+{{ range .packages.work.casks -}}
+brew install --cask {{ . | quote }}
+{{ end -}}
 {{ end -}}
 {{ end -}}
 
