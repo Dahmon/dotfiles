@@ -1,20 +1,17 @@
 # --- ME ---
 
 {{ if eq .machine "SERV WSL" -}}
-# Fix path on SERV WSL
 PATH="/mnt/c/Users/DahmonBicheno/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
-PATH="$PATH:/snap/bin"
+PATH="/snap/bin:$PATH"
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 {{ end -}}
 {{ if eq .machine "Shine" -}}
-# Shine AWS Login
 export AWS_PROFILE=shine
 alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
 
 {{ end -}}
-# PNPM HOME
 export PNPM_HOME="/home/dahmon/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
@@ -66,9 +63,6 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
 
 # update automatically without asking
 zstyle ':omz:update' mode auto

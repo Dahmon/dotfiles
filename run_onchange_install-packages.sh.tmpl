@@ -38,6 +38,9 @@ brew install --cask {{ . | quote }}
 {{ end -}}
 {{ end -}}
 
-# install nvm/other curl install script
-# zsh + omz
+if ! command -v omz &>/dev/null; then
+  echo 'Oh My Zsh is not installed. Installing.'
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh))"
+fi
+
 # Get ssh key from 1Password and add to ssh agent

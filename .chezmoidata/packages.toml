@@ -1,17 +1,19 @@
 [packages.core]
-# nvm! Not via brew, install sh file
+# chezmoi is installed in setup
 casks = ["1password-cli", "wezterm"]
 brews = [
-  "jq",
-  "yq",
-  "fd",
-  "fzf",
+	"jq",
+	"yq",
+	"fd",
+	"fzf",
   "bat",
-  "ripgrep",
-  "terraform",
-  "vim",
-  "neovim",
-  "pnpm",
+	"ripgrep",
+	"zsh",
+  "nvm",
+	"terraform",
+	"vim",
+	"neovim",
+	"pnpm",
 ]
 
 [packages.home]
