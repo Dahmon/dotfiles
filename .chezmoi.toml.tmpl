@@ -3,7 +3,7 @@
 {{- $email := promptStringOnce . "email" "Email Address" -}}
 
 [edit]
-	command = "vim"
+	command = "nvim"
 [data]
 	email = {{ $email | quote }}
 	machine = {{ $machine | quote }}

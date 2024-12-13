@@ -4,7 +4,10 @@ casks = ["1password-cli", "wezterm"]
 brews = [
 	"jq",
 	"yq",
+  "fd",
 	"fzf",
+  "ripgrep",
+  "chezmoi",
 	"terraform",
 	"vim",
 	"neovim",
