@@ -1,6 +1,7 @@
 [packages.core]
 # nvm! Not via brew, install sh file
 casks = ["1password-cli", "wezterm"]
+<<<<<<< Updated upstream
 brews = [
 	"jq",
 	"yq",
@@ -13,6 +14,9 @@ brews = [
 	"neovim",
 	"pnpm",
 ]
+=======
+brews = ["jq", "yq", "fzf", "bat", "terraform", "vim", "neovim", "pnpm"]
+>>>>>>> Stashed changes
 
 [packages.home]
 casks = []
@@ -20,10 +24,4 @@ brews = []
 
 [packages.work]
 casks = []
-brews = [
-	"docker",
-	"docker-completion",
-	"colima",
-	"saml2aws",
-	"iamlive",
-]
+brews = ["docker", "docker-completion", "colima", "saml2aws", "iamlive"]
