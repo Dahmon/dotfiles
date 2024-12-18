@@ -1,22 +1,18 @@
 [packages.core]
 # nvm! Not via brew, install sh file
 casks = ["1password-cli", "wezterm"]
-<<<<<<< Updated upstream
 brews = [
 	"jq",
 	"yq",
   "fd",
 	"fzf",
+  "bat",
   "ripgrep",
-  "chezmoi",
 	"terraform",
 	"vim",
 	"neovim",
 	"pnpm",
 ]
-=======
-brews = ["jq", "yq", "fzf", "bat", "terraform", "vim", "neovim", "pnpm"]
->>>>>>> Stashed changes
 
 [packages.home]
 casks = []
