@@ -1,6 +1,6 @@
 [packages.core]
 # chezmoi is installed in setup
-casks = ["1password-cli", "wezterm"]
+casks = ["1password-cli", "wezterm", "obsidian"]
 brews = [
 	"jq",
 	"yq",
