@@ -2,18 +2,18 @@
 # chezmoi is installed in setup
 casks = ["1password-cli", "wezterm", "obsidian"]
 brews = [
-	"jq",
-	"yq",
-	"fd",
-	"fzf",
+  "jq",
+  "yq",
+  "fd",
+  "fzf",
   "bat",
-	"ripgrep",
-	"zsh",
+  "ripgrep",
+  "zsh",
   "nvm",
-	"terraform",
-	"vim",
-	"neovim",
-	"pnpm",
+  "terraform",
+  "vim",
+  "neovim",
+  "pnpm",
 ]
 
 [packages.home]
@@ -21,4 +21,9 @@ casks = []
 brews = []
 
 [packages.work]
-brews = ["docker", "docker-completion", "colima", "saml2aws"], #"iamlive"]casks = []
+brews = [
+  "docker",
+  "docker-completion",
+  "colima",
+  "saml2aws",
+] #"iamlive"]casks = []
