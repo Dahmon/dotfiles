@@ -38,9 +38,9 @@ brew install --cask {{ . | quote }}
 {{ end -}}
 {{ end -}}
 
-if ! command -v omz &>/dev/null; then
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo 'Oh My Zsh is not installed. Installing.'
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh))"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Get ssh key from 1Password and add to ssh agent
