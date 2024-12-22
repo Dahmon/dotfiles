@@ -1,3 +1,8 @@
 #!/bin/bash
 
 mkdir -p ~/workspace
+
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+  echo 'Oh My Zsh is not installed. Installing.'
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
