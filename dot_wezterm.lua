@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local action = wezterm.action
 
 local config = wezterm.config_builder()
 
@@ -9,12 +10,18 @@ config.keys = {
 	{
 		key = "k",
 		mods = "CMD",
-		action = wezterm.action.ClearScrollback("ScrollbackAndViewport"),
+		action = action.Multiple({
+			action.ClearScrollback("ScrollbackAndViewport"),
+			action.SendKey({ key = "L", mods = "CMD" }),
+		}),
 	},
 	{
 		key = "k",
 		mods = "CTRL",
-		action = wezterm.action.ClearScrollback("ScrollbackAndViewport"),
+		action = action.Multiple({
+			action.ClearScrollback("ScrollbackAndViewport"),
+			action.SendKey({ key = "L", mods = "CTRL" }),
+		}),
 	},
 }
 
