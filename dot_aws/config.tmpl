@@ -1,0 +1,38 @@
+{{ if (or (eq .machine "Shine") (eq .machine "SERV WSL")) -}}
+#[profile shine]
+
+[profile servdev]
+sso_session = dev-sso
+sso_account_id = 937107720929
+sso_role_name = ServAWSDeveloperAccess
+region = ap-southeast-2
+output = json
+csm_enabled = true
+[sso-session dev-sso]
+sso_start_url = https://d-97676092b1.awsapps.com/start/
+sso_region = ap-southeast-2
+sso_registration_scopes = sso:account:access
+
+[profile servsandbox]
+sso_session = sandbox-sso
+sso_account_id = 756610692598
+sso_role_name = ServAWSAdminAccess
+region = ap-southeast-2
+output = json
+[sso-session sandbox-sso]
+sso_start_url = https://d-97676092b1.awsapps.com/start/
+sso_region = ap-southeast-2
+sso_registration_scopes = sso:account:access
+{{ end -}}
+
+# Personal AWS Account Config
+[profile personal]
+sso_session = admin-sso
+sso_account_id = 587104475797
+sso_role_name = AdministratorAccess
+region = ap-southeast-2
+output = json
+[sso-session admin-sso]
+sso_start_url = https://d-97674c05a9.awsapps.com/start/
+sso_region = ap-southeast-2
+sso_registration_scopes = sso:account:access
