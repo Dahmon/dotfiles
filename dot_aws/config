@@ -1,0 +1,25 @@
+# [default]
+# azure_tenant_id=7a04d7f3-5040-4e4c-8f55-293ed3c7df84
+# azure_app_id_uri=http://aws8895768A5D604AAE9C55E2D4901FC65F
+# azure_default_username=dahmon.bicheno@energyaustralia.com.au
+# azure_default_role_arn=
+# azure_default_duration_hours=8
+# azure_default_remember_me=false
+# region=ap-southeast-2
+
+#[default]
+{{ if (or (eq .machine "Shine") (eq .machine "SERV WSL")) -}}
+[profile shine]
+{{ end -}}
+
+# Personal AWS Account Config
+[profile personal]
+sso_session = admin-sso
+sso_account_id = 587104475797
+sso_role_name = AdministratorAccess
+region = ap-southeast-2
+output = json
+[sso-session admin-sso]
+sso_start_url = https://d-97674c05a9.awsapps.com/start/
+sso_region = ap-southeast-2
+sso_registration_scopes = sso:account:access
