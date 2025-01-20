@@ -1,7 +1,5 @@
-{{ if (or (eq .machine "Shine") (eq .machine "SERV WSL")) -}}
-#[profile shine]
-
-[profile servdev]
+{{ if eq .machine "SERV WSL" -}}
+[profile default]
 sso_session = dev-sso
 sso_account_id = 937107720929
 sso_role_name = ServAWSDeveloperAccess
@@ -23,6 +21,9 @@ output = json
 sso_start_url = https://d-97676092b1.awsapps.com/start/
 sso_region = ap-southeast-2
 sso_registration_scopes = sso:account:access
+{{ end -}}
+
+{{ if eq .machine "Shine" -}}
 {{ end -}}
 
 # Personal AWS Account Config
