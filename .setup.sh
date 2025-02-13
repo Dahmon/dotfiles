@@ -1,17 +1,31 @@
 #!/bin/bash
 
-set -ex
+set -e
 
 if ! command -v brew &>/dev/null; then
-  echo 'brew is not installed. Installing.'
+  echo 'installing brew'
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  # Update to templated file
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>$HOME/.bashrc
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-  echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>$HOME/.bashrc
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+  if command -v /usr/local/bin/brew &>/dev/null; then
+    echo 'setting path for macos brew'
+    echo 'eval "$(/usr/local/bin/brew shellenv)"' >>$HOME/.zshrc
+    eval "$(/usr/local/bin/brew shellenv)"
+  fi
+
+  if command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null; then
+    echo 'setting path for linux brew'
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>$HOME/.zshrc
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+  fi
+else
+  echo 'brew is already installed.'
 fi
 
-brew install chezmoi
-chezmoi init dahmon
-chezmoi apply
+if ! command -v chezmoi &>/dev/null; then
+  echo 'installing and initalising chezmoi'
+  brew install chezmoi
+  chezmoi init dahmon
+  chezmoi apply
+else
+  echo 'chezmoi is already installed'
+fi
