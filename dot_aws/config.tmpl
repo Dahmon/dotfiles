@@ -11,6 +11,18 @@ sso_start_url = https://d-97676092b1.awsapps.com/start/
 sso_region = ap-southeast-2
 sso_registration_scopes = sso:account:access
 
+[profile servuat]
+sso_session = uat-sso
+sso_account_id = 816396780912
+sso_role_name = ServAWSDeveloperAccess
+region = ap-southeast-2
+output = json
+csm_enabled = true
+[sso-session uat-sso]
+sso_start_url = https://d-97676092b1.awsapps.com/start/
+sso_region = ap-southeast-2
+sso_registration_scopes = sso:account:access
+
 [profile servsandbox]
 sso_session = sandbox-sso
 sso_account_id = 756610692598

@@ -5,6 +5,7 @@ local config = wezterm.config_builder()
 
 config.color_scheme = "Bamboo"
 config.enable_scroll_bar = true
+config.max_fps = 120
 
 config.keys = {
 	{
