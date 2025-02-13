@@ -13,7 +13,7 @@ config.keys = {
 		mods = "CMD",
 		action = action.Multiple({
 			action.ClearScrollback("ScrollbackAndViewport"),
-			action.SendKey({ key = "L", mods = "CMD" }),
+			action.SendKey({ key = "L", mods = "CTRL" }),
 		}),
 	},
 	{
