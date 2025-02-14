@@ -24,7 +24,7 @@ fi
 if ! command -v chezmoi &>/dev/null; then
   echo 'installing and initalising chezmoi'
   brew install chezmoi
-  chezmoi init dahmon
+  chezmoi init dahmon --ssh
   chezmoi apply
 else
   echo 'chezmoi is already installed'
