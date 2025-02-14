@@ -6,6 +6,7 @@ return {
     debounce_hours = 8,
     ensure_installed = {
       "codelldb",
+      "css-lsp",
       "docker-compose-language-service",
       "dockerfile-language-server",
       "eslint-lsp",
@@ -17,6 +18,7 @@ return {
       "markdownlint-cli2",
       "marksman",
       "prettier",
+      "rust-analyzer",
       "shfmt",
       "stylua",
       "tailwindcss-language-server",
