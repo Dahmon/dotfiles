@@ -1,0 +1,6 @@
+{{ if (or (eq .os "Linux") (eq .os "MacOS")) -}}
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519_personal
+{{ end -}}
