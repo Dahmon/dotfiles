@@ -22,10 +22,16 @@ else
 fi
 
 if ! command -v chezmoi &>/dev/null; then
-  echo 'installing and initalising chezmoi'
+  echo 'installing chezmoi'
   brew install chezmoi
-  chezmoi init dahmon --ssh
-  chezmoi apply
 else
   echo 'chezmoi is already installed'
 fi
+
+if ! test -d $(chezmoi source-path); then
+  echo 'initialising chezmoi'
+  chezmoi init dahmon --ssh
+fi
+
+echo 'applying chezmoi'
+chezmoi apply
