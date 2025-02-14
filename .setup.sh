@@ -18,7 +18,7 @@ if ! command -v brew &>/dev/null; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
 else
-  echo 'brew is already installed.'
+  echo 'brew is already installed'
 fi
 
 if ! command -v chezmoi &>/dev/null; then
@@ -31,6 +31,8 @@ fi
 if ! test -d $(chezmoi source-path); then
   echo 'initialising chezmoi'
   chezmoi init dahmon --ssh
+else
+  echo 'chezmoi is already initialised'
 fi
 
 echo 'applying chezmoi'
