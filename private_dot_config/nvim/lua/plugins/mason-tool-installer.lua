@@ -1,0 +1,27 @@
+return {
+  "WhoIsSethDaniel/mason-tool-installer.nvim",
+  opts = {
+    run_on_start = true,
+    start_delay = 5000,
+    debounce_hours = 8,
+    ensure_installed = {
+      "codelldb",
+      "docker-compose-language-service",
+      "dockerfile-language-server",
+      "eslint-lsp",
+      "gitui",
+      "hadolint",
+      "json-lsp",
+      "lua-language-server",
+      "markdown-toc",
+      "markdownlint-cli2",
+      "marksman",
+      "prettier",
+      "shfmt",
+      "stylua",
+      "tailwindcss-language-server",
+      "taplo",
+      "vtsls",
+    },
+  },
+}
