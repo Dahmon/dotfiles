@@ -82,7 +82,8 @@ zstyle ':omz:update' mode auto
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Aliases
-alias cat='bat --paging=never -p'
+# bat installs as batcat on Linux with apt
+alias cat='{{ if eq .is_arm64_linux "true" }}batcat{{ else }}bat{{ end }} --paging=never -p'
 
 plugin_repos=(
 	zsh-users/zsh-syntax-highlighting
