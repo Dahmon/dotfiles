@@ -1,50 +1,24 @@
 #!/bin/bash
 
-# TODO: Simplify by iterating over packages
+{{ range $group, $packages := .packages }}
+  echo "Installing packages for {{ $group }}"
 
-# Core Packages
-{{ if eq .is_arm64_linux "true" -}}
-  {{ range .packages.core.apt -}}
-    sudo apt install -y {{ . | quote }}
-  {{ end -}}
+  {{ if eq $.is_arm64_linux "true" -}}
+    {{ if index $packages "apt" -}}
+      sudo apt install -y {{ join " " $packages.apt }}
+    {{ end -}}
 
-  {{ range .packages.core.snap -}}
-    sudo snap install {{ . }}
-  {{ end -}}
-{{ else -}}
-  {{ range .packages.core.brews -}}
-    brew install {{ . | quote }}
-  {{ end -}}
+    {{ if index $packages "snap" -}}
+      sudo snap install {{ join " " $packages.snap }}
+    {{ end -}}
+  {{ else -}}
+    {{ if index $packages "brews" -}}
+      brew install {{ join " " $packages.brews }}
+    {{ end -}}
 
-  {{ if eq .chezmoi.os "darwin" -}}
-    {{ range .packages.core.casks -}}
-      brew install --cask {{ . | quote }}
+    {{ if (and (eq $.chezmoi.os "darwin") (index $packages "casks")) -}}
+      echo "Installing casks via brew"
+      brew install --cask {{ join " " $packages.casks }}
     {{ end -}}
   {{ end -}}
 {{ end -}}
-
-{{ if eq .machine "Personal" -}}
-  # Personal Brews
-  {{ range .packages.home.brews -}}
-    brew install {{ . | quote }}
-  {{ end }}
-{{ else -}}
-  # Work Brews
-  {{ range .packages.work.brews -}}
-    brew install {{ . | quote }}
-  {{ end -}}
-{{ end -}}
-
-
-{{ if eq .machine "Personal" -}}
-  # Personal Casks
-  {{ range .packages.home.casks -}}
-    brew install --cask {{ . | quote -}}
-  {{ end -}}
-{{ else -}}
-  # Work Casks
-  {{ range .packages.work.casks -}}
-    brew install --cask {{ . | quote }}
-  {{ end -}}
-{{ end -}}
-

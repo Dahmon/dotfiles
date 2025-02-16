@@ -6,7 +6,7 @@ casks = ["1password-cli", "wezterm", "obsidian"]
 #  pnpm = curl -fsSL https://get.pnpm.io/install.sh | sh -
 #]
 apt = ["fzf", "bat", "zsh"]
-snap = ["yq", "nvim --classic"]
+snap = ["yq", "nvim"]
 brews = [
   "jq",
   "yq",
@@ -23,11 +23,17 @@ brews = [
 ]
 
 [packages.home]
-casks = []
-brews = []
+# casks = []
+# curl = []
+# apt = []
+# snap = []
+# brews = []
 
 [packages.work]
-casks = []
+# casks = []
+# curl = []
+# apt = []
+# snap = []
 brews = [
   "docker",
   "docker-completion",
