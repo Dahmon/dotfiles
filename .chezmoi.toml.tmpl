@@ -6,5 +6,6 @@
 [edit]
 	command = "nvim"
 [data]
+  is_arm64_linux = {{ and (eq .chezmoi.os "linux") (eq .chezmoi.arch "arm64") | quote }}
 	email = {{ $email | quote }}
 	machine = {{ $machine | quote }}
