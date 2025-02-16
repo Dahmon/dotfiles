@@ -5,7 +5,7 @@ set -e
 is_arm64_linux=$([ "$(uname)" = "Linux" ] && { [ "$(uname -m)" = "arm64" ] || [ "$(uname -m)" = "aarch64" ]; } && echo true || echo false)
 
 if ! command -v brew &>/dev/null; then
-  if is_arm64_linux; then
+  if [ $is_arm64_linux = true ]; then
     echo 'unable to install brew on ARM Linux'
   else
     echo 'installing brew'
