@@ -8,13 +8,13 @@ if ! command -v brew &>/dev/null; then
 
   if command -v /usr/local/bin/brew &>/dev/null; then
     echo 'setting path for macos brew'
-    echo 'eval "$(/usr/local/bin/brew shellenv)"' >>$HOME/.zshrc
+    echo 'eval "$(/usr/local/bin/brew shellenv)"' >>~/.zshrc
     eval "$(/usr/local/bin/brew shellenv)"
   fi
 
   if command -v /home/linuxbrew/.linuxbrew/bin/brew &>/dev/null; then
     echo 'setting path for linux brew'
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>$HOME/.zshrc
+    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >>~/.zshrc
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
   fi
 else

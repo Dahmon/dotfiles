@@ -1,13 +1,10 @@
 {{- $machines := list "Personal" "Shine" "SERV WSL" -}}
-{{- $oss := list "Linux" "MacOS" -}}
 
 {{- $machine := promptChoiceOnce . "machine" "What machine are you on" $machines -}}
-{{- $os := promptChoiceOnce . "os" "Operating system" $oss -}}
 {{- $email := promptStringOnce . "email" "Email Address" -}}
 
 [edit]
 	command = "nvim"
 [data]
 	email = {{ $email | quote }}
-  os = {{ $os | quote }}
 	machine = {{ $machine | quote }}

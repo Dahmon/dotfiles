@@ -4,5 +4,5 @@ Setup: `/bin/bash -c "$(curl -sSL https://raw.githubusercontent.com/Dahmon/dotfi
 
 ## TODO
 
-- [ ] [Chezmoi symlink](https://www.chezmoi.io/user-guide/manage-different-types-of-file/#handle-configuration-files-which-are-externally-modified) VSCode settings, lazyvim.lua
 - [ ] Fix neotest
+- [ ] Update to use externals for zsh and plugins
