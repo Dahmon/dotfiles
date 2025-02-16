@@ -104,8 +104,7 @@ plugins+=(
 )
 
 source $ZSH/oh-my-zsh.sh
-if command -v fzf &> /dev/null
-then
+if command -v fzf &>/dev/null; then
   source <(fzf --zsh)
 else
   echo "fzf not installed"
