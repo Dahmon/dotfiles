@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # TODO: A bit of duplication is okay - dupe this block with condition based on machine
+# TODO: Add condition, don't want to install everything
+# Template the packages toml file, and set an "enabled" flag - add condition in here
+# Also need to not reinstall packages, especially with brew
 {{ range $group, $packages := .packages }}
   echo "Installing packages for {{ $group }}"
 
