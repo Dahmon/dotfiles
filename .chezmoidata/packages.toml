@@ -1,12 +1,12 @@
 [packages.core]
 # chezmoi is installed in setup
-casks = ["1password-cli", "wezterm", "obsidian"]
+casks = ["1password-cli", "wezterm", "ghostty", "obsidian"]
 # curl = [
 #  nvm = curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 #  pnpm = curl -fsSL https://get.pnpm.io/install.sh | sh -
 #]
 apt = ["fzf", "bat", "zsh"]
-snap = ["yq", "nvim"]
+#snap = ["yq", "nvim"]
 brews = [
   "jq",
   "yq",
