@@ -1,28 +1,63 @@
 #!/bin/bash
 
-# TODO: A bit of duplication is okay - dupe this block with condition based on machine
-# TODO: Add condition, don't want to install everything
-# Template the packages toml file, and set an "enabled" flag - add condition in here
-# Also need to not reinstall packages, especially with brew
-{{ range $group, $packages := .packages }}
-  echo "Installing packages for {{ $group }}"
+# Also need to not reinstall packages, especially with brew - Brewfile?
+{{ if eq .is_arm64_linux "true" -}}
+  {{ if index .packages.core "apt" -}}
+    sudo apt install -y {{ join " " .packages.core.apt }}
+  {{ end -}}
 
-  {{ if eq $.is_arm64_linux "true" -}}
-    {{ if index $packages "apt" -}}
-      sudo apt install -y {{ join " " $packages.apt }}
+  {{ if index .packages.core "snap" -}}
+    sudo snap install {{ join " " .packages.core.snap }}
+  {{ end -}}
+{{ else -}}
+  {{ if index .packages.core "brews" -}}
+    brew install {{ join " " .packages.core.brews }}
+  {{ end -}}
+
+  {{ if (and (eq .chezmoi.os "darwin") (index .packages.core "casks")) -}}
+    echo "Installing casks via brew"
+    brew install --cask {{ join " " .packages.core.casks }}
+  {{ end -}}
+{{ end -}}
+
+
+{{ if eq .machine "Personal" -}}
+  {{ if eq .is_arm64_linux "true" -}}
+    {{ if index .packages.home "apt" -}}
+      sudo apt install -y {{ join " " .packages.home.apt }}
     {{ end -}}
 
-    {{ if index $packages "snap" -}}
-      sudo snap install {{ join " " $packages.snap }}
+    {{ if index .packages.home "snap" -}}
+      sudo snap install {{ join " " .packages.home.snap }}
     {{ end -}}
   {{ else -}}
-    {{ if index $packages "brews" -}}
-      brew install {{ join " " $packages.brews }}
+    {{ if index .packages.home "brews" -}}
+      brew install {{ join " " .packages.home.brews }}
     {{ end -}}
 
-    {{ if (and (eq $.chezmoi.os "darwin") (index $packages "casks")) -}}
+    {{ if (and (eq .chezmoi.os "darwin") (index .packages.home "casks")) -}}
       echo "Installing casks via brew"
-      brew install --cask {{ join " " $packages.casks }}
+      brew install --cask {{ join " " .packages.home.casks }}
+    {{ end -}}
+  {{ end -}}
+
+{{ else -}}
+  {{ if eq .is_arm64_linux "true" -}}
+    {{ if index .packages.work "apt" -}}
+      sudo apt install -y {{ join " " .packages.work.apt }}
+    {{ end -}}
+
+    {{ if index .packages.work "snap" -}}
+      sudo snap install {{ join " " .packages.work.snap }}
+    {{ end -}}
+  {{ else -}}
+    {{ if index .packages.work "brews" -}}
+      brew install {{ join " " .packages.work.brews }}
+    {{ end -}}
+
+    {{ if (and (eq .chezmoi.os "darwin") (index .packages.work "casks")) -}}
+      echo "Installing casks via brew"
+      brew install --cask {{ join " " .packages.work.casks }}
     {{ end -}}
   {{ end -}}
 {{ end -}}
