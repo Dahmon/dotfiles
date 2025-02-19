@@ -6,3 +6,4 @@ Setup: `/bin/bash -c "$(curl -sSL https://raw.githubusercontent.com/Dahmon/dotfi
 
 - [ ] Fix neotest
 - [ ] Update to use externals for zsh and plugins
+- [ ] Brewfile? Not sure if necessary. My setup works.
