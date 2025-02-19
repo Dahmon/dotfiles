@@ -87,6 +87,10 @@ zstyle ':omz:update' mode auto
 # bat installs as batcat on Linux with apt
 alias cat='{{ if eq .is_arm64_linux "true" }}batcat{{ else }}bat{{ end }} --paging=never -p'
 
+# chezmoi shortcuts
+alias c=chezmoi
+alias ccp='chezmoi cd'
+
 plugin_repos=(
 	zsh-users/zsh-syntax-highlighting
 	lukechilds/zsh-nvm
