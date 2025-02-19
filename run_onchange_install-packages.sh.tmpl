@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# TODO: A bit of duplication is okay - dupe this block with condition based on machine
 {{ range $group, $packages := .packages }}
   echo "Installing packages for {{ $group }}"
 

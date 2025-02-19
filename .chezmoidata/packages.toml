@@ -5,8 +5,9 @@ casks = ["1password-cli", "wezterm", "ghostty", "obsidian"]
 #  nvm = curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 #  pnpm = curl -fsSL https://get.pnpm.io/install.sh | sh -
 #]
+# apt and snap only used on ARM64 Linux (Raspberry Pi)
 apt = ["fzf", "bat", "zsh"]
-#snap = ["yq", "nvim"]
+snap = ["yq", "nvim"]
 brews = [
   "jq",
   "yq",
@@ -35,6 +36,8 @@ brews = [
 # apt = []
 # snap = []
 brews = [
+  "awscli",
+  "aws-sam-cli",
   "docker",
   "docker-completion",
   "colima",
