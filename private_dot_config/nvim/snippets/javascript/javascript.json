@@ -1,0 +1,11 @@
+{
+  "Arrange, Act, Assert": {
+    "prefix": "aaa",
+    "description": "Arrange, Act, Assert",
+    "body": [
+      "// ARRANGE\n${1}\n",
+      "// ACT\n${2}\n",
+      "// ASSERT\n${0}"
+    ]
+  }
+}
