@@ -1,15 +1,15 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "navarasu/onedark.nvim",
+    name = "onedark",
     opts = {
-      flavour = "mocha",
+      style = "darker",
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "onedark",
     },
   },
 }
