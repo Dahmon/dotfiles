@@ -16,6 +16,8 @@ config.keys = {
 			action.SendKey({ key = "L", mods = "CTRL" }),
 		}),
 	},
+  -- On Windows, this prevents navigating to window above current
+  -- Maybe possible to fix? https://github.com/wezterm/wezterm/issues/1417
 	{
 		key = "k",
 		mods = "CTRL",
