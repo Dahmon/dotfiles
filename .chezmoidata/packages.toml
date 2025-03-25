@@ -1,12 +1,13 @@
 [packages.core]
 # chezmoi is installed in setup
-casks = ["1password-cli", "wezterm", "ghostty", "obsidian"]
-# curl = [
-#  nvm = curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-#  pnpm = curl -fsSL https://get.pnpm.io/install.sh | sh -
-#]
+casks = ["1password-cli", "ghostty", "obsidian"]
+# curl -fsSL $url | sh -
+curl = [
+  # "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh", # nvm
+  # "https://get.pnpm.io/install.sh", # pnpm
+]
 # apt and snap only used on ARM64 Linux (Raspberry Pi)
-apt = ["fzf", "bat", "zsh"]
+apt = ["fzf", "bat", "tmux", "zsh"]
 snap = ["yq", "nvim"]
 brews = [
   "jq",
@@ -15,6 +16,7 @@ brews = [
   "fzf",
   "bat",
   "ripgrep",
+  "tmux",
   "zsh",
   "nvm",
   "terraform",
