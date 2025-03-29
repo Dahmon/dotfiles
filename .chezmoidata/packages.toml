@@ -1,6 +1,5 @@
 [packages.core]
 # chezmoi is installed in setup
-casks = ["1password-cli", "ghostty", "obsidian"]
 # curl -sSL $url | sh -
 curl = [
   # "https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh", # nvm
@@ -9,40 +8,13 @@ curl = [
 # apt and snap only used on ARM64 Linux (Raspberry Pi)
 apt = ["fzf", "bat", "tmux", "zsh"]
 snap = ["yq", "nvim"]
-brews = [
-  "jq",
-  "yq",
-  "fd",
-  "fzf",
-  "bat",
-  "ripgrep",
-  "tmux",
-  "zsh",
-  "nvm",
-  "terraform",
-  "vim",
-  "neovim",
-  "pnpm",
-]
 
 [packages.home]
-# casks = []
 # curl = []
 # apt = []
 # snap = []
-# brews = []
 
 [packages.work]
-# casks = []
 # curl = []
 # apt = []
 # snap = []
-brews = [
-  "awscli",
-  "aws-sam-cli",
-  "docker",
-  "docker-completion",
-  "colima",
-  "saml2aws",
-  #"iamlive",
-]

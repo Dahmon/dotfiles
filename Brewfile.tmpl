@@ -1,0 +1,34 @@
+{{ if ne .is_arm64_linux "true" -}}
+# Brews
+brew "jq"
+brew "yq"
+brew "fd"
+brew "fzf"
+brew "bat"
+brew "ripgrep"
+brew "tmux"
+brew "zsh"
+brew "nvm"
+brew "terraform"
+brew "vim"
+brew "neovim"
+brew "pnpm"
+
+{{ if (eq .is_work "true") -}}
+# Work Brews
+brew "awscli"
+brew "aws-sam-cli"
+brew "docker"
+brew "docker-completion"
+brew "colima"
+brew "saml2aws"
+# brew "iamlive"
+{{ end -}}
+
+{{ if (eq .chezmoi.os "darwin") -}}
+# Casks
+cask "ghostty"
+cask "obsidian"
+# cask "1password-cli" - need to uninstall manually
+{{ end -}}
+{{ end -}}

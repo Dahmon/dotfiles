@@ -1,6 +1,9 @@
 #!/bin/bash
 
-# Also need to not reinstall packages, especially with brew - Brewfile?
+{{ if eq .chezmoi.os "darwin" -}}
+defaults write com.apple.Finder AppleShowAllFiles -bool true
+{{ end -}}
+
 {{ if eq .is_arm64_linux "true" -}}
   {{ if index .packages.core "apt" -}}
     sudo apt install -y {{ join " " .packages.core.apt }}
@@ -9,20 +12,8 @@
   {{ if index .packages.core "snap" -}}
     sudo snap install {{ join " " .packages.core.snap }}
   {{ end -}}
-{{ else -}}
-  {{ if index .packages.core "brews" -}}
-    brew install {{ join " " .packages.core.brews }}
-  {{ end -}}
 
-  {{ if (and (eq .chezmoi.os "darwin") (index .packages.core "casks")) -}}
-    echo "Installing casks via brew"
-    brew install --cask {{ join " " .packages.core.casks }}
-  {{ end -}}
-{{ end -}}
-
-
-{{ if eq .machine "Personal" -}}
-  {{ if eq .is_arm64_linux "true" -}}
+  {{ if eq .machine "Personal" -}}
     {{ if index .packages.home "apt" -}}
       sudo apt install -y {{ join " " .packages.home.apt }}
     {{ end -}}
@@ -31,18 +22,6 @@
       sudo snap install {{ join " " .packages.home.snap }}
     {{ end -}}
   {{ else -}}
-    {{ if index .packages.home "brews" -}}
-      brew install {{ join " " .packages.home.brews }}
-    {{ end -}}
-
-    {{ if (and (eq .chezmoi.os "darwin") (index .packages.home "casks")) -}}
-      echo "Installing casks via brew"
-      brew install --cask {{ join " " .packages.home.casks }}
-    {{ end -}}
-  {{ end -}}
-
-{{ else -}}
-  {{ if eq .is_arm64_linux "true" -}}
     {{ if index .packages.work "apt" -}}
       sudo apt install -y {{ join " " .packages.work.apt }}
     {{ end -}}
@@ -50,14 +29,7 @@
     {{ if index .packages.work "snap" -}}
       sudo snap install {{ join " " .packages.work.snap }}
     {{ end -}}
-  {{ else -}}
-    {{ if index .packages.work "brews" -}}
-      brew install {{ join " " .packages.work.brews }}
-    {{ end -}}
-
-    {{ if (and (eq .chezmoi.os "darwin") (index .packages.work "casks")) -}}
-      echo "Installing casks via brew"
-      brew install --cask {{ join " " .packages.work.casks }}
-    {{ end -}}
   {{ end -}}
 {{ end -}}
+
+brew bundle --file="~/Brewfile"
