@@ -9,10 +9,11 @@ brew "ripgrep"
 brew "tmux"
 brew "zsh"
 brew "nvm"
-brew "terraform"
 brew "vim"
 brew "neovim"
 brew "pnpm"
+brew "nnn"
+brew "git-lfs"
 
 {{ if (eq .is_work "true") -}}
 # Work Brews
@@ -23,6 +24,7 @@ brew "docker-completion"
 brew "colima"
 brew "saml2aws"
 # brew "iamlive"
+brew "terraform"
 {{ end -}}
 
 {{ if (eq .chezmoi.os "darwin") -}}
