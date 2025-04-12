@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -e
 
@@ -9,7 +9,7 @@ if ! command -v brew &>/dev/null; then
     echo 'unable to install brew on ARM Linux'
   else
     echo 'installing brew'
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     if command -v /usr/local/bin/brew &>/dev/null; then
       echo 'setting path for macos brew'
