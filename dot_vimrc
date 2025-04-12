@@ -67,6 +67,7 @@ let g:ale_rust_rls_toolchain = 'stable'
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'rust': ['cargo', 'rls'],
+\   'c': ['clangtidy'],
 \}
 
 Plug 'dense-analysis/ale'

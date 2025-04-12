@@ -5,6 +5,7 @@ return {
     start_delay = 5000,
     debounce_hours = 8,
     ensure_installed = {
+      "clangd",
       "codelldb",
       "css-lsp",
       "docker-compose-language-service",
