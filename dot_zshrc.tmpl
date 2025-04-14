@@ -109,7 +109,13 @@ plugins+=(
 
 source $ZSH/oh-my-zsh.sh
 if command -v fzf &>/dev/null; then
+  # Raspberry Pi apk-get installed is ourdated, no --zsh flag
+  {{ if eq .is_arm64_linux "true" -}}
+  source /usr/share/doc/fzf/examples/key-bindings.zsh
+  source /usr/share/doc/fzf/examples/completion.zsh
+  {{ else -}}
   source <(fzf --zsh)
+  {{ end -}}
 else
   echo "fzf not installed"
 fi
@@ -119,4 +125,8 @@ complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+if command -v pyenv &>/dev/null; then
+  eval "$(pyenv init - zsh)"
+else
+  echo "pyenv not installed"
+fi
