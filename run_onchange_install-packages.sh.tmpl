@@ -80,6 +80,6 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
       sudo snap install {{ join " " .packages.work.snap }}
     {{ end -}}
   {{ end -}}
+{{ else -}}
+  brew bundle --file="~/Brewfile"
 {{ end -}}
-
-brew bundle --file="~/Brewfile"
