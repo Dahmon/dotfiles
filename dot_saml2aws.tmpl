@@ -1,0 +1,31 @@
+{{ if eq .machine "Shine" -}}
+[default]
+name                    = default
+app_id                  = 
+url                     = https://accounts.google.com/o/saml2/initsso?idpid=C03prroq7&spid=897679855480&forceauthn=false
+username                = dahmon.bicheno@shinesolutions.com
+# provider                = GoogleApps
+provider                = Browser
+mfa                     = Auto
+mfa_ip_address          = 
+skip_verify             = false
+timeout                 = 0
+aws_urn                 = urn:amazon:webservices
+aws_session_duration    = 3600
+aws_profile             = shine
+resource_id             = 
+subdomain               = 
+role_arn                = 
+region                  = 
+http_attempts_count     = 
+http_retry_delay        = 
+credentials_file        = 
+saml_cache              = false
+saml_cache_file         = 
+target_url              = 
+disable_remember_device = false
+disable_sessions        = false
+download_browser_driver = false
+headless                = false
+prompter                = 
+{{ end -}}
