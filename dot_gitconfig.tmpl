@@ -2,6 +2,12 @@
   defaultBranch = main
 [core]
   editor = vim
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  navigate = true
+  side-by-side = true
 [user]
   name = Dahmon Bicheno
   email = {{ .email }}
@@ -12,6 +18,7 @@
   autostash = true
 [merge]
   autostash = true
+  conflictstyle = zdiff3
 [alias]
   # Commit
   c = commit
