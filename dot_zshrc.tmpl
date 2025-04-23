@@ -109,13 +109,32 @@ plugins+=(
 
 source $ZSH/oh-my-zsh.sh
 if command -v fzf &>/dev/null; then
-  # Raspberry Pi apk-get installed is ourdated, no --zsh flag
+  # Raspberry Pi apk-get installed is outdated, no --zsh flag
   {{ if eq .is_arm64_linux "true" -}}
   source /usr/share/doc/fzf/examples/key-bindings.zsh
   source /usr/share/doc/fzf/examples/completion.zsh
   {{ else -}}
   source <(fzf --zsh)
   {{ end -}}
+
+  # Use fd instead of find for fzf
+  export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+  export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+  _fzf_compgen_path() {
+    fd --hidden --exclude .git . "$1"
+  }
+
+  _fzf_compgen_dir() {
+    fd --type=d --hidden --exclude .git . "$1"
+  }
+
+  # Setup fzf-git.sh
+  if [[ ! -d ~/fzf-git ]]; then
+    git clone --depth 1 https://github.com/junegunn/fzf-git.sh.git ~/fzf-git
+  fi
+  source ~/fzf-git/fzf-git.sh
 else
   echo "fzf not installed"
 fi
