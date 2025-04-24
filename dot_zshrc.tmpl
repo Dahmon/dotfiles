@@ -11,7 +11,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 {{ if eq .machine "Shine" -}}
 export AWS_PROFILE=shine
 alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
-
 {{ end -}}
 export PNPM_HOME="/home/dahmon/.local/share/pnpm"
 case ":$PATH:" in
@@ -55,7 +54,6 @@ setopt SHARE_HISTORY
 unsetopt HIST_VERIFY
 
 # --- Oh My ZSH ---
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -82,12 +80,6 @@ zstyle ':omz:update' mode auto
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-# Aliases
-# bat installs as batcat on Linux with apt
-alias cat='{{ if eq .is_arm64_linux "true" }}batcat{{ else }}bat{{ end }} --paging=never -p'
-
-# chezmoi aliases
-alias cm=chezmoi
 
 plugin_repos=(
 	zsh-users/zsh-syntax-highlighting
@@ -170,3 +162,9 @@ if command -v pyenv &>/dev/null; then
 else
   echo "pyenv not installed"
 fi
+
+# Aliases
+# bat installs as batcat on Linux with apt
+alias cat='{{ if eq .is_arm64_linux "true" }}batcat{{ else }}bat{{ end }} --paging=never -p'
+alias ll='ls -lha'
+alias cm=chezmoi

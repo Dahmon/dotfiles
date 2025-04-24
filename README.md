@@ -7,6 +7,8 @@ Setup: `/bin/bash -c "$(curl -sSL https://raw.githubusercontent.com/Dahmon/dotfi
 - [ ] Fix neotest
 - [ ] Add `vim-oscyank` so i can copy to clipboard
 - [ ] Update to use externals for zsh and plugins
+- [ ] Fork git.zsh and simplify a lot of aliases to be more my liking
+- [ ] Clone `git-fzf` to a better location
 - [x] Brewfile? Not sure if necessary. My setup works.
 - [ ] Create a scripted `tmux` setup
 - [ ] git blame in nvim status bar
