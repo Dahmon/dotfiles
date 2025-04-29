@@ -4,6 +4,7 @@ require("config.lazy")
 -- clear existing cmds
 vim.api.nvim_create_augroup("chezmoi_tmpl_ft", { clear = true })
 
+-- Set file/language type for chezmoi template files
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = "chezmoi_tmpl_ft",
   pattern = {
