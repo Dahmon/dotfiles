@@ -1,59 +1,5 @@
 #!/bin/bash
 
-{{ if eq .chezmoi.os "darwin" -}}
-# MacOS Settings Based on http://mths.be/macos
-
-# Close all System Preferences windows
-osascript -e 'tell application "System Preferences" to quit'
-
-# Language
-defaults write NSGlobalDomain AppleLanguages -array "en"
-defaults write NSGlobalDomain AppleLocale -string "en_AU@currency=AUD"
-
-# Measurement
-defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
-defaults write NSGlobalDomain AppleMetricUnits -bool true
-
-# Disable Tap to Click
-defaults write com.apple.AppleMultitouchTrackpad Clicking -bool false
-sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool false
-sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
-sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
-
-# Require Password Immediately
-defaults write com.apple.screensaver askForPassword -int 1
-defaults write com.apple.screensaver askForPasswordDelay -int 0
-
-# Screenshots
-defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
-defaults write com.apple.screencapture type -string "png"
-defaults write com.apple.screencapture disable-shadow -bool true
-defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
-
-# Avoid creating .DS_Store files on network or USB volumes
-defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
-
-# Files
-chflags nohidden ~/Library
-defaults write com.apple.Finder AppleShowAllFiles -bool true
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
-# Safari/WebKit
-# Privacy
-defaults write com.apple.Safari UniversalSearchEnabled -bool false
-defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-defaults write com.apple.Safari SendDoNotTrackHTTPHeader -bool true
-
-# Set Safari’s home page to `about:blank`
-defaults write com.apple.Safari HomePage -string "about:blank"
-
-# Enable the Develop menu and the Web Inspector in Safari
-defaults write com.apple.Safari IncludeDevelopMenu -bool true
-defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled -bool true
-{{ end -}}
-
 {{ if eq .is_arm64_linux "true" -}}
 {{ if index .packages.core "apt" -}}
 sudo apt install -y {{ join " " .packages.core.apt }}
