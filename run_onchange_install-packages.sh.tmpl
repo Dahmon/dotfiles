@@ -55,31 +55,31 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 {{ end -}}
 
 {{ if eq .is_arm64_linux "true" -}}
-  {{ if index .packages.core "apt" -}}
-    sudo apt install -y {{ join " " .packages.core.apt }}
-  {{ end -}}
+{{ if index .packages.core "apt" -}}
+sudo apt install -y {{ join " " .packages.core.apt }}
+{{ end -}}
 
-  {{ if index .packages.core "snap" -}}
-    sudo snap install {{ join " " .packages.core.snap }}
-  {{ end -}}
+{{ if index .packages.core "snap" -}}
+sudo snap install {{ join " " .packages.core.snap }}
+{{ end -}}
 
-  {{ if eq .machine "Personal" -}}
-    {{ if index .packages.home "apt" -}}
-      sudo apt install -y {{ join " " .packages.home.apt }}
-    {{ end -}}
+{{ if eq .machine "Personal" -}}
+{{ if index .packages.home "apt" -}}
+sudo apt install -y {{ join " " .packages.home.apt }}
+{{ end -}}
 
-    {{ if index .packages.home "snap" -}}
-      sudo snap install {{ join " " .packages.home.snap }}
-    {{ end -}}
-  {{ else -}}
-    {{ if index .packages.work "apt" -}}
-      sudo apt install -y {{ join " " .packages.work.apt }}
-    {{ end -}}
+{{ if index .packages.home "snap" -}}
+sudo snap install {{ join " " .packages.home.snap }}
+{{ end -}}
+{{ else -}}
+{{ if index .packages.work "apt" -}}
+sudo apt install -y {{ join " " .packages.work.apt }}
+{{ end -}}
 
-    {{ if index .packages.work "snap" -}}
-      sudo snap install {{ join " " .packages.work.snap }}
-    {{ end -}}
-  {{ end -}}
+{{ if index .packages.work "snap" -}}
+sudo snap install {{ join " " .packages.work.snap }}
+{{ end -}}
+{{ end -}}
 {{ else -}}
 brew bundle --file=/dev/stdin <<EOF
 {{ if ne .is_arm64_linux "true" -}}
