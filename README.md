@@ -9,6 +9,8 @@ Setup: `/bin/bash -c "$(curl -sSL https://raw.githubusercontent.com/Dahmon/dotfi
 - [ ] Update to use externals for zsh and plugins
 - [ ] Fork git.zsh and simplify a lot of aliases to be more my liking
 - [ ] Clone `git-fzf` to a better location
+  - Josean Martinez puts everything in a folder in `~/.config/<lib>`
+    I think it's pretty standard to load from there
 - [x] Brewfile? Not sure if necessary. My setup works.
 - [ ] Create a scripted `tmux` setup
 - [ ] git blame in nvim status bar
@@ -17,3 +19,4 @@ Setup: `/bin/bash -c "$(curl -sSL https://raw.githubusercontent.com/Dahmon/dotfi
 - [ ] markview.nvim
   - [Snacks](https://github.com/folke/snacks.nvim/blob/main/docs/git.md#snacksgitblame_line)
 - [ ] Update nvim window resize to `Alt-Arrow`
+- [ ] cron job that runs `https://github.com/vjeantet/alerter` if I'm below 20% and not charging

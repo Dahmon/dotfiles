@@ -4,9 +4,12 @@ set -e
 
 is_arm64_linux=$([ "$(uname)" = "Linux" ] && { [ "$(uname -m)" = "arm64" ] || [ "$(uname -m)" = "aarch64" ]; } && echo true || echo false)
 
-# MacOS Settings Based on http://mths.be/macos
-# If any fail, enable Settings > Privacy > Full Disk Access for Terminal
 if [ "$(uname)" == "Darwin" ]; then
+  # If any fail, enable Settings > Privacy > Full Disk Access for Terminal
+  # Sources:
+  #  - http://mths.be/macos
+  #  - https://github.com/kevinSuttle/macOS-Defaults/blob/master/.macos
+
   # Close all System Preferences windows
   osascript -e 'tell application "System Preferences" to quit'
 
@@ -19,6 +22,19 @@ if [ "$(uname)" == "Darwin" ]; then
   # Language
   defaults write NSGlobalDomain AppleLanguages -array "en"
   defaults write NSGlobalDomain AppleLocale -string "en_AU@currency=AUD"
+
+  # Always show scrollbars
+  defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+  # Dock
+  # Remove the auto-hiding Dock delay
+  defaults write com.apple.dock autohide-delay -float 0
+  # Remove the animation when hiding/showing the Dock
+  defaults write com.apple.dock autohide-time-modifier -float 0
+  # Automatically hide and show the Dock
+  defaults write com.apple.dock autohide -bool true
+  # Make Dock icons of hidden applications translucent
+  defaults write com.apple.dock showhidden -bool true
 
   # Measurement
   defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
