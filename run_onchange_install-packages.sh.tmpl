@@ -46,6 +46,11 @@ brew "nnn"
 brew "eza"
 brew "git-lfs"
 brew "git-delta"
+{{ if (eq .chezmoi.os "darwin") -}}
+# MacOS Brews
+tap "FelixKratz/formulae"
+brew "FelixKratz/formulae/borders"
+{{ end -}}
 {{ if (eq .is_work "true") -}}
 # Work Brews
 brew "awscli"
@@ -58,7 +63,7 @@ brew "saml2aws"
 brew "terraform"
 {{ end -}}
 {{ if (eq .chezmoi.os "darwin") -}}
-# Casks
+# MacOS Casks
 cask "ghostty"
 cask "obsidian"
 cask "nikitabobko/tap/aerospace"
