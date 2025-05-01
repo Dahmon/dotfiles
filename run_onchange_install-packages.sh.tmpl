@@ -71,4 +71,8 @@ cask "nikitabobko/tap/aerospace"
 {{ end -}}
 {{ end -}}
 EOF
+
+{{ if (eq .chezmoi.os "darwin") -}}
+brew services start borders
+{{ end -}}
 {{ end -}}
