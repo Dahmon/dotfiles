@@ -36,6 +36,9 @@ sso_registration_scopes = sso:account:access
 {{ end -}}
 
 {{ if eq .machine "Shine" -}}
+[profile shinesandbox]
+region = ap-southeast-2
+output = json
 {{ end -}}
 
 # Personal AWS Account Config
