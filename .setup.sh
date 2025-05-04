@@ -35,6 +35,8 @@ if [ "$(uname)" == "Darwin" ]; then
   defaults write com.apple.dock autohide -bool true
   # Make Dock icons of hidden applications translucent
   defaults write com.apple.dock showhidden -bool true
+  defaults write com.apple.dock mineffect -string "scale"
+  defaults write com.apple.dock minimize-to-application -bool true
 
   # Measurement
   defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
@@ -45,6 +47,9 @@ if [ "$(uname)" == "Darwin" ]; then
   sudo defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool false
   sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
   sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
+
+  # Drag windows with 3 fingers
+  defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerDrag" -bool "true"
 
   # Require Password Immediately
   defaults write com.apple.screensaver askForPassword -int 1
