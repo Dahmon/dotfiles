@@ -163,12 +163,20 @@ else
   echo "pyenv not installed"
 fi
 
-# Aliases
+# --- Aliases ---
 # bat installs as batcat on Linux with apt
 alias cat='{{ if eq .is_arm64_linux "true" }}batcat{{ else }}bat{{ end }} --paging=never -p'
 alias ll='ls -a'
 alias lll='ls -lha'
+
+# Chezmoi
 alias cm='chezmoi'
 alias cma='chezmoi apply'
+
+# Tmux
 alias t='tmux'
 alias ta='tmux attach'
+
+# Git
+alias gpo='git push -u origin HEAD'
+alias gcm='git commit --message'
