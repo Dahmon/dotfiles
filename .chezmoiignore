@@ -1,5 +1,6 @@
 .config/nvim/lazy-lock.json
 .config/nvim/lazyvim.json
+.chezmoitemplates/obsidian-custom-dictionary.txt
 lazyvim.json
 
 {{ if (ne .chezmoi.os "darwin") }}
