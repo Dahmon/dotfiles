@@ -106,10 +106,10 @@ alt-comma = 'layout accordion horizontal vertical'
 alt-0 = 'balance-sizes'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-h = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors left'
+alt-j = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors down'
+alt-k = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors up'
+alt-l = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
@@ -163,15 +163,25 @@ f = [
 ] # Toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
+alt-q = 'exec open -n /System/Applications/Utilities/Terminal.app'
 # sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
 #s = ['layout sticky tiling', 'mode main']
 
+alt-h = ['move-node-to-monitor left', 'mode main']
+alt-j = ['move-node-to-monitor down', 'mode main']
+alt-k = ['move-node-to-monitor up', 'mode main']
+alt-l = ['move-node-to-monitor right', 'mode main']
 alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
-
-down = 'volume down'
-up = 'volume up'
-shift-down = ['volume set 0', 'mode main']
+alt-shift-1 = ['summon-workspace 1', 'mode main']
+alt-shift-2 = ['summon-workspace 2', 'mode main']
+alt-shift-3 = ['summon-workspace 3', 'mode main']
+alt-shift-4 = ['summon-workspace 4', 'mode main']
+alt-shift-5 = ['summon-workspace 5', 'mode main']
+alt-shift-6 = ['summon-workspace 6', 'mode main']
+alt-shift-7 = ['summon-workspace 7', 'mode main']
+alt-shift-8 = ['summon-workspace 8', 'mode main']
+alt-shift-9 = ['summon-workspace 9', 'mode main']
 {{ end -}}
