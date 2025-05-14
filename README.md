@@ -23,6 +23,10 @@ Setup: `/bin/bash -c "$(curl -sSL https://raw.githubusercontent.com/Dahmon/dotfi
 - [ ] Update nvim window resize to `Alt-Arrow`
 - [ ] cron job that runs `https://github.com/vjeantet/alerter` if I'm below 20% and not charging
 - [ ] Add [`typr`](https://github.com/nvzone/typr) typing plugin
+- [ ] Add tmux setup script
+  - Move to bin to can call easily (or alias)
+  - `tad` (tmux attach dev), check if exists, if not then create, kb, chezmoi, zsh, code windows
+- [ ] Markdown snippets (frontmatter)
 
 ## Issues
 
