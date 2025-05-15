@@ -6,6 +6,13 @@
     ],
     "description": "ISO date time stamp with timezone offset"
   },
+  "date": {
+    "prefix": "date",
+    "body": [
+      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}"
+    ],
+    "description": "Current date in YYYY-MM-DD format"
+  },
   "uuid": {
     "prefix": "uuid",
     "body": "${UUID}",
