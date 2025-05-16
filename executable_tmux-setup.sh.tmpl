@@ -1,0 +1,17 @@
+#!/bin/bash
+SESSION="dev"
+EXISTS=$(tmux ls 2>/dev/null | grep $SESSION)
+
+if [[ -z "$EXISTS" ]]; then
+  tmux new-session -d -s $SESSION
+
+  tmux rename-window -t 0 "code"
+  tmux send-keys -t 'code' 'cd ~/workspace/' C-m 'clear' C-m
+
+  tmux new-window -t $SESSION:1 -n "kb"
+  tmux send-keys -t 'kb' 'cd ~/workspace/KnowledgeBase/' C-m 'clear' C-m
+
+  tmux new-window -t $SESSION:2 -n "shell"
+fi
+
+tmux attach-session -t $SESSION:0
