@@ -48,9 +48,6 @@ if [ "$(uname)" == "Darwin" ]; then
   sudo defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
   sudo defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 0
 
-  # Drag windows with 3 fingers
-  defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerDrag" -bool "true"
-
   # Require Password Immediately
   defaults write com.apple.screensaver askForPassword -int 1
   defaults write com.apple.screensaver askForPasswordDelay -int 0
