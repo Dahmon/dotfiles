@@ -6,17 +6,24 @@ PATH="/mnt/c/Users/DahmonBicheno/AppData/Local/Programs/Microsoft VS Code/bin:$P
 PATH="/snap/bin:$PATH"
 PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 {{ end -}}
+
 {{ if eq .machine "Shine" -}}
 export AWS_PROFILE=shine
 alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
 {{ end -}}
+
 export PNPM_HOME="/home/dahmon/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# Homebrew Ruby
+if [ -d "/opt/homebrew/opt/ruby/bin/" ]; then
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
 
 # History - https://registerspill.thorstenball.com/p/which-command-did-you-run-1731-days
 HISTFILE=~/.zsh_history
@@ -29,7 +36,7 @@ setopt INC_APPEND_HISTORY
 # Record timestamp in history:
 setopt EXTENDED_HISTORY
 
-# Expire duplicate entries first when trimming history:
+# Expire duplicate entries first when trimming history:/bin:
 setopt HIST_EXPIRE_DUPS_FIRST
 
 # Dont record an entry that was just recorded again:
