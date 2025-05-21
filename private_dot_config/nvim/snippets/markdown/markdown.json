@@ -1,0 +1,10 @@
+{
+  "Frontmatter": {
+    "prefix": "frontmatter",
+    "body": [
+      "---",
+      "tags:\n  - ${0}",
+      "---"
+    ]
+  }
+}
