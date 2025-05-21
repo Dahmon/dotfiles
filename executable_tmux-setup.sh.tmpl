@@ -8,10 +8,13 @@ if [[ -z "$EXISTS" ]]; then
   tmux rename-window -t 0 "code"
   tmux send-keys -t 'code' 'cd ~/workspace/' C-m 'clear' C-m
 
-  tmux new-window -t $SESSION:1 -n "kb"
-  tmux send-keys -t 'kb' 'cd ~/workspace/KnowledgeBase/' C-m 'clear' C-m
+  KB_DIR=~/workspace/KnowledgeBase/
+  if [[ -d "$KB_DIR" ]]; then
+    tmux new-window -t $SESSION -n "kb"
+    tmux send-keys -t 'kb' 'cd ~/workspace/KnowledgeBase/' C-m 'clear' C-m
+  fi
 
-  tmux new-window -t $SESSION:2 -n "shell"
+  tmux new-window -t $SESSION -n "shell"
 fi
 
 tmux attach-session -t $SESSION:0
