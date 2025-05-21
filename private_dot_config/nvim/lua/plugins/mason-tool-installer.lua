@@ -17,7 +17,6 @@ return {
       "lua-language-server",
       "markdown-toc",
       "markdownlint-cli2",
-      "marksman",
       "prettier",
       "rust-analyzer",
       "shfmt",
