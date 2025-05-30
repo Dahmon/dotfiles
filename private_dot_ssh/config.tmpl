@@ -7,7 +7,7 @@ Host github.com
   IdentityFile ~/.ssh/id_ed25519_personal
 {{ end -}}
 {{ if (and (eq .machine "Shine") (eq .chezmoi.os "darwin")) -}}
-Host github.com
+Host github.com ssh.dev.azure.com gitlab.com
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa_shine
