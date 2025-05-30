@@ -1,6 +1,10 @@
 export SAM_CLI_TELEMETRY=0
 export EDITOR="nvim"
 
+source ~/.config/op/plugins.sh
+# This needs to move to a setup script
+# export OPENAI_API_KEY=$(op read "op://Private/openai-avante.nvim/api key")
+
 {{ if eq .machine "SERV WSL" -}}
 PATH="/mnt/c/Users/DahmonBicheno/AppData/Local/Programs/Microsoft VS Code/bin:$PATH"
 PATH="/snap/bin:$PATH"
@@ -12,6 +16,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 export AWS_PROFILE=shine
 alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
 {{ end -}}
+
 
 export PNPM_HOME="/home/dahmon/.local/share/pnpm"
 case ":$PATH:" in
