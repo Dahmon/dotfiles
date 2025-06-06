@@ -11,7 +11,7 @@ Setup: `/bin/bash -c "$(curl -sSL https://raw.githubusercontent.com/Dahmon/dotfi
 - [ ] Clone `git-fzf` to a better location
   - Josean Martinez puts everything in a folder in `~/.config/<lib>`
     I think it's pretty standard to load from there
-- [ ] Create a scripted `aerospace` and `tmux` setup
+- [ ] Create a scripted `aerospace` setup
   - Workspace 1, accordion, top to bottom Ghostty, Firefox, Obsidian
   - Workspace 5, Spotify
 - [ ] git blame in nvim status bar
