@@ -1,0 +1,8 @@
+#!/bin/bash
+
+{{ if (and (eq .machine "Personal") (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin"))) -}}
+   op read -o ~/.ssh/id_ed25519_personal "op://Personal/Home SSH Key/private key"
+{{ end -}}
+{{ if eq .machine "Shine" -}}
+  op read -o ~/.ssh/id_rsa_shine "op://Private/Shine SSH Key/private key"
+{{ end -}}
