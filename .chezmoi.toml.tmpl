@@ -10,3 +10,4 @@
 	email = {{ $email | quote }}
 	machine = {{ $machine | quote }}
   is_work = {{ or (eq $machine "Shine") (eq $machine "SERV WSL") | quote }}
+  openai_key = {{ onepasswordRead "op://Personal/openai-api-cli/key" | quote }}
