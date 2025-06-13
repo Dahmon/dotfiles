@@ -19,6 +19,16 @@ if [ "$(uname)" == "Darwin" ]; then
   # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
   defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
 
+  # Mission Control/Spaces
+  # Ctrl + Up
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 32 '{ enabled = 0; }'
+  # Ctrl + Down
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 34 '{ enabled = 0; }'
+  # Ctrl + Left
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 '{ enabled = 0; }'
+  # Ctrl + Right
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 80 '{ enabled = 0; }'
+
   # Language
   defaults write NSGlobalDomain AppleLanguages -array "en"
   defaults write NSGlobalDomain AppleLocale -string "en_AU@currency=AUD"
