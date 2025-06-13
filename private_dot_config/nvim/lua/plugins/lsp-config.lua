@@ -2,7 +2,19 @@ return {
   "neovim/nvim-lspconfig",
   opts = {
     inlay_hints = { enabled = false },
-    servers = { eslint = {} },
+    servers = {
+      eslint = {
+        settings = {
+          typescript = {
+            preferences = {
+              includeCompletionsForModuleExports = true,
+              includeCompletionsForImportStatements = true,
+              importModuleSpecifier = "non-relative",
+            },
+          },
+        },
+      },
+    },
     setup = {
       eslint = function()
         require("lazyvim.util").lsp.on_attach(function(client)
