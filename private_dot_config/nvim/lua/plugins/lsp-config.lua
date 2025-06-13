@@ -3,14 +3,14 @@ return {
   opts = {
     inlay_hints = { enabled = false },
     servers = {
-      eslint = {
-        settings = {
-          typescript = {
-            preferences = {
-              includeCompletionsForModuleExports = true,
-              includeCompletionsForImportStatements = true,
-              importModuleSpecifier = "non-relative",
-            },
+      eslint = {},
+      tsserver = {
+        init_options = {
+          hostInfo = "neovim",
+          preferences = {
+            includeCompletionsForModuleExports = true,
+            includeCompletionsForImportStatements = true,
+            importModuleSpecifierPreference = "non-relative",
           },
         },
       },
