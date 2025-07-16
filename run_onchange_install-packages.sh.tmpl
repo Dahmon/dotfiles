@@ -30,6 +30,10 @@ sudo snap install {{ join " " .packages.work.snap }}
 brew bundle --file=/dev/stdin <<EOF
 {{ if ne .is_arm64_linux "true" -}}
 # Brews
+{{ if eq .machine "Personal" -}}
+tap "sst/tap"
+brew "sst/tap/opencode"
+{{ end -}}
 brew "jq"
 brew "yq"
 brew "fd"

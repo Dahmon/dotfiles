@@ -11,3 +11,5 @@
 	machine = {{ $machine | quote }}
   is_work = {{ or (eq $machine "Shine") (eq $machine "SERV WSL") | quote }}
   openai_key = {{ onepasswordRead "op://Personal/openai-api-cli/key" "B5VODJACTNGTXLV37TSB3QPGJQ" | quote }}
+  anthropic_key = {{ onepasswordRead "op://Personal/anthropic-api-key-cli/credential" "B5VODJACTNGTXLV37TSB3QPGJQ" | quote }}
+

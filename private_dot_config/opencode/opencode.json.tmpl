@@ -1,0 +1,19 @@
+{{ if eq .machine "Personal" -}}
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "options": {
+        "baseURL": "http://localhost:11434/v1"
+      },
+      "models": {
+        "llama3.2:latest": {},
+        "qwen2.5-coder:7b": {},
+        "qwen2.5-coder:14b": {},
+        "qwen3:14b": {}
+      }
+    }
+  }
+}
+{{ end -}}
