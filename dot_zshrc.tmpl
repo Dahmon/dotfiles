@@ -127,14 +127,15 @@ fi
 alias cat='{{ if eq .is_arm64_linux "true" }}batcat{{ else }}bat{{ end }} --paging=never -p'
 alias ll='ls -a'
 alias lll='ls -lha'
+alias t='touch'
 
 # Chezmoi
 alias cm='chezmoi'
 alias cma='chezmoi apply'
 
 # Tmux
-alias t='tmux'
-alias ta='~/tmux-setup.sh'
+alias tm='tmux'
+alias tma='~/tmux-setup.sh'
 
 # Git
 alias gcm='git commit --message'
