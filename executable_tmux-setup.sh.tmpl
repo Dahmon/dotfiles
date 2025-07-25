@@ -11,7 +11,7 @@ if [[ -z "$EXISTS" ]]; then
   KB_DIR=~/workspace/KnowledgeBase/
   if [[ -d "$KB_DIR" ]]; then
     tmux new-window -t $SESSION -n "kb"
-    tmux send-keys -t 'kb' 'cd ~/workspace/KnowledgeBase/' C-m 'clear' C-m
+    tmux send-keys -t 'kb' "cd $KB_DIR" C-m 'clear' C-m
   fi
 
   tmux new-window -t $SESSION -n "shell"
