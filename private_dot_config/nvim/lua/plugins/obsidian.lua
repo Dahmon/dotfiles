@@ -26,6 +26,10 @@ return {
         path = "~/workspace/KnowledgeBase",
       },
     },
+    daily_notes = {
+      folder = "daily",
+      template = "daybook-template.md",
+    },
     completion = {
       nvim_cmp = false,
       blink = true,

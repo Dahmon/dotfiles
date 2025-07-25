@@ -5,5 +5,5 @@
 vim.g.snacks_animate = false
 vim.g.lazyvim_prettier_needs_config = true
 vim.g.lazyvim_eslint_auto_format = true
-vim.g.autoformat = false
+vim.g.autoformat = true
 vim.g.lazyvim_picker = "fzf"
