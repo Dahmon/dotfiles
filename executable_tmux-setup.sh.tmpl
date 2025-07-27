@@ -2,19 +2,20 @@
 SESSION="dev"
 EXISTS=$(tmux ls 2>/dev/null | grep $SESSION)
 
+KB_DIR=~/workspace/KnowledgeBase/
+
 if [[ -z "$EXISTS" ]]; then
   tmux new-session -d -s $SESSION
 
-  tmux rename-window -t 0 "code"
-  tmux send-keys -t 'code' 'cd ~/workspace/' C-m 'clear' C-m
-
-  KB_DIR=~/workspace/KnowledgeBase/
+  tmux rename-window -t 0 'kb'
   if [[ -d "$KB_DIR" ]]; then
-    tmux new-window -t $SESSION -n "kb"
-    tmux send-keys -t 'kb' "cd $KB_DIR" C-m 'clear' C-m
+    tmux send-keys -t 'kb' "cd '$KB_DIR'" C-m 'clear' C-m
   fi
 
-  tmux new-window -t $SESSION -n "shell"
+  tmux new-window -t $SESSION -n 'code'
+  tmux send-keys -t 'code' 'cd ~/workspace/' C-m 'clear' C-m
+
+  tmux new-window -t $SESSION -n 'shell'
 fi
 
 tmux attach-session -t $SESSION:0
