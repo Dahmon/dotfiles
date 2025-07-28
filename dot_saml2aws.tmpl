@@ -1,8 +1,9 @@
 {{ if eq .machine "Shine" -}}
+# Update to shinesandbox rather than default
 [default]
 name                    = default
 app_id                  = 
-url                     = {{ onepasswordRead "op://Private/Shine AWS SAML/website" "SBONTIQZXJGF5KJKCTDLUMYXOY" }}
+url                     = {{ .saml2aws_url }}
 username                = dahmon.bicheno@shinesolutions.com
 provider                = GoogleApps
 mfa                     = Auto

@@ -12,4 +12,7 @@
   is_work = {{ or (eq $machine "Shine") (eq $machine "SERV WSL") | quote }}
   openai_key = {{ onepasswordRead "op://Personal/openai-api-cli/key" "B5VODJACTNGTXLV37TSB3QPGJQ" | quote }}
   anthropic_key = {{ onepasswordRead "op://Personal/anthropic-api-key-cli/credential" "B5VODJACTNGTXLV37TSB3QPGJQ" | quote }}
+  {{ if eq $machine "Shine" -}}
+  saml2aws_url = {{ onepasswordRead "op://Private/Shine AWS SAML/website" "SBONTIQZXJGF5KJKCTDLUMYXOY" | quote }}
+  {{ end -}}
 
