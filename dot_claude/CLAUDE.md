@@ -42,6 +42,9 @@ source: https://raw.githubusercontent.com/harperreed/dotfiles/refs/heads/master/
 # Testing
 
 - Tests MUST cover the functionality being implemented.
+- AVOID using mocks when possible, preferring functional components.
+- AVOID testing implementation details where possible, we should test input/output and user interaction
+- Always use the Arrange, Act, Assert (AAA) pattern in test cases. Have every comment, leave empty if nothing required for that step.
 - NEVER ignore the output of the system or the tests - Logs and messages often contain CRITICAL information.
 - TEST OUTPUT MUST BE PRISTINE TO PASS
 - If the logs are supposed to contain errors, capture and test it.
