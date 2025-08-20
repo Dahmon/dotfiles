@@ -3,7 +3,7 @@
     "prefix": "frontmatter",
     "body": [
       "---",
-      "tags:\n  - ${0}",
+      "links:\n  - \"[[${0}]]\"",
       "---"
     ]
   }
