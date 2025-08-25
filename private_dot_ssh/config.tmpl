@@ -1,14 +1,13 @@
 Host *
   SetEnv TERM=xterm-256color
-{{ if (and (eq .machine "Personal") (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin"))) -}}
-Host github.com
+{{- if (and (eq .machine "Personal") (or (eq .chezmoi.os "linux") (eq .chezmoi.os "darwin"))) }}
   AddKeysToAgent yes
   {{ if eq .chezmoi.os "darwin" }}UseKeychain yes{{ end }}
   IdentityFile ~/.ssh/id_ed25519_personal
-{{ end -}}
-{{ if eq .machine "Shine" -}}
+{{- end }}
+{{- if eq .machine "Shine" }}
 Host github.com ssh.dev.azure.com gitlab.com
   AddKeysToAgent yes
   UseKeychain yes
   IdentityFile ~/.ssh/id_rsa_shine
-{{ end -}}
+{{- end }}
