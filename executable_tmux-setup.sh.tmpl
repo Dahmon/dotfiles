@@ -14,6 +14,9 @@ if [[ -z "$EXISTS" ]]; then
 
   tmux new-window -t $SESSION -n 'code'
   tmux send-keys -t 'code' 'cd ~/workspace/' C-m 'clear' C-m
+  # Read: https://gist.github.com/sdondley/b01cc5bb1169c8c83401e438a652b84e
+  tmux split-window -v -l 15 -t $SESSION:1
+  tmux send-keys -t $SESSION:1.1 'cd ~/workspace/' C-m 'clear' C-m
 
   tmux new-window -t $SESSION -n 'shell'
 fi
