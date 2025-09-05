@@ -1,7 +1,13 @@
 set nocompatible
 
+" TODO:
+" 1. Add `tmux` navigator plugin
+" 2. Update keymaps to match nvim
+
 syntax on
+set background=dark
 colorscheme retrobox
+
 
 " Show current line number, and the rest relative
 set number
@@ -52,25 +58,25 @@ endif
 " VimPlug Configuration
 call plug#begin()
 
-" fzf Configuration
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'
 
 " Rust Configuration
-Plug 'rust-lang/rust.vim'
-let g:rustfmt_autosave = 1
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0
-let g:ale_rust_rls_toolchain = 'stable'
+" Plug 'rust-lang/rust.vim'
+" let g:rustfmt_autosave = 1
+" let g:rustfmt_emit_files = 1
+" let g:rustfmt_fail_silently = 0
+" let g:ale_rust_rls_toolchain = 'stable'
 
 " ALE Configuration
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'rust': ['cargo', 'rls'],
-\   'c': ['clangtidy'],
-\}
+" let g:ale_linters = {
+" \   'javascript': ['eslint'],
+" \   'rust': ['cargo', 'rls'],
+" \   'c': ['clangtidy'],
+" \}
 
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 
 " Deoplete Config
 " TODO: Install python3-pynvim via apt-get or brew - macos doesn't have
