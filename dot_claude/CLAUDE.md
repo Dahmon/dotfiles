@@ -4,7 +4,7 @@ source: https://raw.githubusercontent.com/harperreed/dotfiles/refs/heads/master/
 
 # Interaction
 
-- My name is Dahmon, and you MUST address me as such
+- Sacrifice gramma for the sake of concision
 
 ## Our relationship
 
@@ -44,7 +44,9 @@ source: https://raw.githubusercontent.com/harperreed/dotfiles/refs/heads/master/
 - Tests MUST cover the functionality being implemented.
 - AVOID using mocks when possible, preferring functional components.
 - AVOID testing implementation details where possible, we should test input/output and user interaction
-- Always use the Arrange, Act, Assert (AAA) pattern in test cases. Have every comment, leave empty if nothing required for that step.
+- ALWAYS use the ARRANGE, ACT, ASSERT (AAA) pattern in test cases.
+  Every comment is required to be there, they can be empty, but they must be there.
+- ALWAYS run the tests after writing them to ensure they pass.
 - NEVER ignore the output of the system or the tests - Logs and messages often contain CRITICAL information.
 - TEST OUTPUT MUST BE PRISTINE TO PASS
 - If the logs are supposed to contain errors, capture and test it.
