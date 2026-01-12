@@ -7,18 +7,42 @@ KB_DIR=~/workspace/KnowledgeBase/
 if [[ -z "$EXISTS" ]]; then
   tmux new-session -d -s $SESSION
 
-  tmux rename-window -t 0 'kb'
   if [[ -d "$KB_DIR" ]]; then
+    tmux rename-window -t 0 'kb'
     tmux send-keys -t 'kb' "cd '$KB_DIR'" C-m 'clear' C-m
     tmux split-window -h -l 15 -t $SESSION:0
   fi
 
+{{ if eq .machine "Shine" -}}
+  # Bell Financial Group Workspaces
+  # NOTE: `"#{pane_current_path}"` does not work as I'm not on the active pane when creating new windows
+  tmux new-window -t $SESSION -n 'lib'
+  tmux send-keys -t 'lib' 'cd ~/workspace/BFG.Portal.Mobile.Shared.Library/' C-m 'clear' C-m
+  tmux split-window -t 'lib' -h -l 15 -c "#{pane_current_path}"
+
+  tmux new-window -t $SESSION -n 'direct'
+  tmux send-keys -t 'direct' 'cd ~/workspace/bell-direct-mobile/' C-m 'clear' C-m
+  tmux split-window -t 'direct' -h -l 15 -c "#{pane_current_path}"
+
+  tmux new-window -t $SESSION -n 'broker'
+  tmux send-keys -t 'broker' 'cd ~/workspace/desktop-broker-mobile/' C-m 'clear' C-m
+  tmux split-window -t 'broker' -h -l 15 -c "#{pane_current_path}"
+
+  tmux new-window -t $SESSION -n 'potter'
+  tmux send-keys -t 'potter' 'cd ~/workspace/bell-potter-mobile/' C-m 'clear' C-m
+  tmux split-window -t 'potter' -h -l 15 -c "#{pane_current_path}"
+
+  tmux new-window -t $SESSION -n 'xapi'
+  tmux send-keys -t 'xapi' 'cd ~/workspace/BFG.Portal.XAPI/' C-m 'clear' C-m
+  tmux split-window -t 'xapi' -h -l 15 -c "#{pane_current_path}"
+{{ else -}}
   tmux new-window -t $SESSION -n 'code'
   tmux send-keys -t 'code' 'cd ~/workspace/' C-m 'clear' C-m
   # Read: https://gist.github.com/sdondley/b01cc5bb1169c8c83401e438a652b84e
-  tmux split-window -h -l 15 -t $SESSION:1
-  tmux send-keys -t $SESSION:1.1 'cd ~/workspace/' C-m 'clear' C-m
+  tmux split-window -t 'code' -h -l 15 -c "#{pane_current_path}"
+{{ end -}}
 
+  # General purpose shell window
   tmux new-window -t $SESSION -n 'shell'
 fi
 
