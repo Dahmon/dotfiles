@@ -1,6 +1,8 @@
 {{ if eq .machine "Shine" -}}
 export AWS_PROFILE=shine
 alias shine-aws-login="op run --env-file=$HOME/.config/op/shine-aws-env -- saml2aws login --force"
+# For `amp` cli
+export PATH="$HOME/.local/bin:$PATH"
 {{ end -}}
 
 # History - https://registerspill.thorstenball.com/p/which-command-did-you-run-1731-days
