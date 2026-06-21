@@ -10,36 +10,36 @@ if [[ -z "$EXISTS" ]]; then
   if [[ -d "$KB_DIR" ]]; then
     tmux rename-window -t 0 'kb'
     tmux send-keys -t 'kb' "cd '$KB_DIR'" C-m 'clear' C-m
-    tmux split-window -h -l 15 -t $SESSION:0
+    tmux split-window -h -l 15 -t $SESSION:0 -c "$KB_DIR"
   fi
 
 {{ if eq .machine "Shine" -}}
   # Bell Financial Group Workspaces
-  # NOTE: `"#{pane_current_path}"` does not work as I'm not on the active pane when creating new windows
+  # Use explicit -c paths: #{pane_current_path} targets the wrong pane/context, and cd via
+  # send-keys may not have updated the source_pane's path before split-window runs.
   tmux new-window -t $SESSION -n 'lib'
   tmux send-keys -t 'lib' 'cd ~/workspace/BFG.Portal.Mobile.Shared.Library/' C-m 'clear' C-m
-  tmux split-window -t 'lib' -h -l 15 -c "#{pane_current_path}"
+  tmux split-window -t 'lib' -h -l 15 -c "$HOME/workspace/BFG.Portal.Mobile.Shared.Library"
 
   tmux new-window -t $SESSION -n 'direct'
   tmux send-keys -t 'direct' 'cd ~/workspace/bell-direct-mobile/' C-m 'clear' C-m
-  tmux split-window -t 'direct' -h -l 15 -c "#{pane_current_path}"
+  tmux split-window -t 'direct' -h -l 15 -c "$HOME/workspace/bell-direct-mobile"
 
   tmux new-window -t $SESSION -n 'broker'
   tmux send-keys -t 'broker' 'cd ~/workspace/desktop-broker-mobile/' C-m 'clear' C-m
-  tmux split-window -t 'broker' -h -l 15 -c "#{pane_current_path}"
+  tmux split-window -t 'broker' -h -l 15 -c "$HOME/workspace/desktop-broker-mobile"
 
   tmux new-window -t $SESSION -n 'potter'
   tmux send-keys -t 'potter' 'cd ~/workspace/bell-potter-mobile/' C-m 'clear' C-m
-  tmux split-window -t 'potter' -h -l 15 -c "#{pane_current_path}"
+  tmux split-window -t 'potter' -h -l 15 -c "$HOME/workspace/bell-potter-mobile"
 
   tmux new-window -t $SESSION -n 'xapi'
   tmux send-keys -t 'xapi' 'cd ~/workspace/BFG.Portal.XAPI/' C-m 'clear' C-m
-  tmux split-window -t 'xapi' -h -l 15 -c "#{pane_current_path}"
+  tmux split-window -t 'xapi' -h -l 15 -c "$HOME/workspace/BFG.Portal.XAPI"
 {{ else -}}
   tmux new-window -t $SESSION -n 'code'
   tmux send-keys -t 'code' 'cd ~/workspace/' C-m 'clear' C-m
-  # Read: https://gist.github.com/sdondley/b01cc5bb1169c8c83401e438a652b84e
-  tmux split-window -t 'code' -h -l 15 -c "#{pane_current_path}"
+  tmux split-window -t 'code' -h -l 15 -c "$HOME/workspace"
 {{ end -}}
 
   # General purpose shell window

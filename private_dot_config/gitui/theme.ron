@@ -1,4 +1,5 @@
 // tokyonight night
+// I want a super simple, high contract theme
 (
   selected_tab: Some("#bb9af7"),
   command_fg: Some("#565f89"),
