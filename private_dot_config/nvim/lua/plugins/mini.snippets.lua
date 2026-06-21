@@ -1,5 +1,5 @@
 return {
-  "echasnovski/mini.snippets",
+  "nvim-mini/mini.snippets",
   opts = function(_, opts)
     local snippets, config_path = require("mini.snippets"), vim.fn.stdpath("config")
     opts.snippets = {
