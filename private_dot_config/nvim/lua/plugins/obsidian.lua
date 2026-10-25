@@ -31,8 +31,6 @@ return {
       template = "daybook-template.md",
     },
     completion = {
-      nvim_cmp = false,
-      blink = true,
       min_chars = 2,
     },
     picker = {
@@ -45,8 +43,12 @@ return {
     templates = {
       folder = "Meta/Templates",
     },
-    disable_frontmatter = true,
-    sort_by = "modified",
-    sort_reversed = true,
+    frontmatter = {
+      enabled = false,
+    },
+    search = {
+      sort_by = "modified",
+      sort_reversed = true,
+    },
   },
 }
