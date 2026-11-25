@@ -19,14 +19,18 @@ if [ "$(uname)" == "Darwin" ]; then
   # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
   defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
 
-  # Mission Control/Spaces
-  # Ctrl + Up
+  # JankyBorders
+  # Disable Tahoe animations
+  defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+  # Mission Control/Spaces - these dont work, something else needs to change too
+  # Ctrl + Up (32 + 34) & Ctrl + Down (33 + 34)
   defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 32 '{ enabled = 0; }'
-  # Ctrl + Down
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 33 '{ enabled = 0; }'
   defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 34 '{ enabled = 0; }'
   # Ctrl + Left
   defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 '{ enabled = 0; }'
-  # Ctrl + Right
+  # Ctrl + Right (This looks to be/also be 81)
   defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 80 '{ enabled = 0; }'
 
   # Language
