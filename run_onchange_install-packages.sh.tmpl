@@ -31,8 +31,7 @@ brew bundle --file=/dev/stdin <<EOF
 {{ if ne .is_arm64_linux "true" -}}
 # Brews
 {{ if eq .machine "Personal" -}}
-tap "sst/tap"
-brew "sst/tap/opencode"
+# Personal...
 {{ end -}}
 brew "jq"
 brew "yq"
@@ -59,8 +58,8 @@ tap "FelixKratz/formulae"
 brew "FelixKratz/formulae/borders"
 # MacOS Casks
 cask "ghostty"
-cask "obsidian"
-cask "nikitabobko/tap/aerospace"
+# cask "obsidian"
+# cask "nikitabobko/tap/aerospace"
 # cask "1password-cli" - need to uninstall manually
 {{ end -}}
 {{ if (eq .is_work "true") -}}
