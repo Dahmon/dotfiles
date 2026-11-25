@@ -34,6 +34,7 @@ return {
     completion = {
       min_chars = 2,
     },
+    legacy_commands = false,
     picker = {
       name = "fzf-lua",
     },

@@ -61,6 +61,7 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-surround'
+" Plug 'bakudankun/pico-8.vim'
 
 " Rust Configuration
 " Plug 'rust-lang/rust.vim'
