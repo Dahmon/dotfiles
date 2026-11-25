@@ -125,6 +125,10 @@ else
 fi
 
 # --- Aliases ---
+# Switch between Rosetta x86/Arm architecture
+alias x86="$env /usr/bin/arch -x86_64 /bin/zsh ---login"
+alias arm="$env /usr/bin/arch -arm64 /bin/zsh ---login"
+
 # bat installs as batcat on Linux with apt
 alias cat='{{ if eq .is_arm64_linux "true" }}batcat{{ else }}bat{{ end }} --paging=never -p'
 alias ll='ls -a'
