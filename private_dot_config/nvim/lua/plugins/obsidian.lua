@@ -30,6 +30,7 @@ return {
       folder = "daily",
       template = "daybook-template.md",
     },
+    legacy_commands = false,
     completion = {
       min_chars = 2,
     },
